@@ -1,0 +1,17 @@
+Amanda Yun, akyun, 1903241, pa3
+
+Files submitted:
+README
+Makefile - checks for leaks
+List.h - shows which functions are accessible to the client
+List.c - creates a list for the adjacency linkedlists the graph needs to use, its function printList is also called to print the lists of the strong components
+Graph.h - shows which functions are accessible to the client. Visit is not included
+Graph.c - Creates a newGraph, can print and copy the Graph, transpose function reverses the graph. DFS function perform a depth first search on a vertex with its helper function Visit.
+GraphTest.c - Adds arcs to the graph to check if DFS is working. Also checks if the transpose function is working
+FindComponents.c - reads to an input and prints to an output file. Performs a DFS on a graph and finds its strong components
+
+In this assignment, we were asked to implement a depth first search algorithm. 
+In Graph.c, majority of the functions were the same as those in pa2 except for DFS Visit, and transpose. 
+DFS needs Visit, a local function that is not accessible by the client, because it checks if the vertices and their adj list have already been explored. Graph.c makes a new graph and searches when DFS is called. The transpose function reverses the Graph so that all the parents become apart of their children's adjacency list. 
+FindComponents was similar to FindPath but it found the number of strong components in a graph after DFS was called upon it. 
+To find the graph's strong components, we must first transpose the graph and look for which vertices have a parent as NIL or no parent. Each time we check a vertex's parent, we add it to a list until the parent reaches NIL. Then we print the list and clear that list to search for the next strong component and its path. 
